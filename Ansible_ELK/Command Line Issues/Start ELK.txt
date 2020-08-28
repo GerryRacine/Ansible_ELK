@@ -1,0 +1,43 @@
+### Start ELK service
+
+sudo service docker status
+
+sysadmin@ELK-VM:~$ sudo systemctl docker start
+Unknown operation docker.
+sysadmin@ELK-VM:~$ sudo systemctl start docker
+sysadmin@ELK-VM:~$ sudo service docker status
+● docker.service - Docker Application Container Engine
+   Loaded: loaded (/lib/systemd/system/docker.service; disabled; vendor preset:
+   Active: active (running) since Tue 2020-08-18 23:43:01 UTC; 6s ago
+     Docs: https://docs.docker.com
+ Main PID: 7716 (dockerd)
+    Tasks: 31
+   CGroup: /system.slice/docker.service
+
+### Check to see if Kibana is running on the ELK server
+
+http://52.138.24.255:5601/app/kibana
+
+### Next step
+
+sysadmin@ELK-VM:~$ docker container list -a
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.40/containers/json?all=1: dial unix /var/run/docker.sock: connect: permission denied
+sysadmin@ELK-VM:~$ docker start elk
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.40/containers/elk/start: dial unix /var/run/docker.sock: connect: permission denied
+Error: failed to start containers: elk
+sysadmin@ELK-VM:~$ curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-amd64.deb
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 23.9M  100 23.9M    0     0  59.9M      0 --:--:-- --:--:-- --:--:-- 59.7M
+sysadmin@ELK-VM:~$ sudo dpkg -i filebeat-7.6.1-amd64.deb
+Selecting previously unselected package filebeat.
+(Reading database ... 65440 files and directories currently installed.)
+Preparing to unpack filebeat-7.6.1-amd64.deb ...
+Unpacking filebeat (7.6.1) ...
+Setting up filebeat (7.6.1) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+Processing triggers for systemd (237-3ubuntu10.41) ...
+sysadmin@ELK-VM:~$
+
+
+

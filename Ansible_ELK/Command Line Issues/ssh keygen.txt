@@ -1,0 +1,207 @@
+chmod: changing permissions of '/dev/shm': Permission denied
+chmod: changing permissions of '/dev/mqueue': Permission denied
+rm: cannot remove '/etc/post-install/01-devices.post': Permission denied
+rm: cannot remove '/etc/post-install/03-mtab.post': Permission denied
+rm: cannot remove '/etc/post-install/06-windows-files.post': Permission denied
+rm: cannot remove '/etc/post-install/99-post-install-cleanup.post': Permission denied
+
+gerry@andfinity-001 MINGW64 ~
+$ ssh help
+ssh: Could not resolve hostname help: Name or service not known
+
+gerry@andfinity-001 MINGW64 ~
+$ ~/ .ssh
+bash: /c/Users/gerry/: Is a directory
+
+gerry@andfinity-001 MINGW64 ~
+$ ls
+'3D Objects'/
+ advanced_ip_scanner_Aliases.bin
+ advanced_ip_scanner_Comments.bin
+ advanced_ip_scanner_MAC.bin
+ AppData/
+'Application Data'@
+ Contacts/
+ Cookies@
+ Desktop/
+ dire/
+ Documents/
+ Downloads/
+ Dropbox/
+ Favorites/
+ IntelGraphicsProfiles/
+ Links/
+'Local Settings'@
+ logs/
+ MicrosoftEdgeBackups/
+ Music/
+'My Documents'@
+ NetHood@
+ NTUSER.DAT
+ ntuser.dat.LOG1
+ ntuser.dat.LOG2
+ NTUSER.DAT{8bc3d606-ca97-11e9-bbf5-54ee758c06cb}.TM.blf
+ NTUSER.DAT{8bc3d606-ca97-11e9-bbf5-54ee758c06cb}.TMContainer00000000000000000001.regtrans-ms
+ NTUSER.DAT{8bc3d606-ca97-11e9-bbf5-54ee758c06cb}.TMContainer00000000000000000002.regtrans-ms
+ ntuser.ini
+ OneDrive/
+'Outlook Files'/
+ Pictures/
+ PrintHood@
+ Recent@
+ report.txt
+ Roaming/
+'Saved Games'/
+ scan_results/
+ Searches/
+ SendTo@
+'Start Menu'@
+ Templates@
+ Tracing/
+ Videos/
+'VirtualBox VMs'/
+
+gerry@andfinity-001 MINGW64 ~
+$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/gerry/.ssh/id_rsa):
+Created directory '/c/Users/gerry/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/gerry/.ssh/id_rsa
+Your public key has been saved in /c/Users/gerry/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:2G+F6gRGstEGpuWExzHTGn3LJtXaAMsxTnA+DD0TMac gerry@andfinity-001
+The key's randomart image is:
++---[RSA 3072]----+
+|   o@*X+..       |
+|  .*+&*B+ .      |
+|  ..+oE* =       |
+|    .*.+= ..     |
+|    . +oS . .    |
+|     . . o .     |
+|        o o      |
+|       o .       |
+|        .        |
++----[SHA256]-----+
+
+gerry@andfinity-001 MINGW64 ~
+$ ls
+'3D Objects'/
+ advanced_ip_scanner_Aliases.bin
+ advanced_ip_scanner_Comments.bin
+ advanced_ip_scanner_MAC.bin
+ AppData/
+'Application Data'@
+ Contacts/
+ Cookies@
+ Desktop/
+ dire/
+ Documents/
+ Downloads/
+ Dropbox/
+ Favorites/
+ IntelGraphicsProfiles/
+ Links/
+'Local Settings'@
+ logs/
+ MicrosoftEdgeBackups/
+ Music/
+'My Documents'@
+ NetHood@
+ NTUSER.DAT
+ ntuser.dat.LOG1
+ ntuser.dat.LOG2
+ NTUSER.DAT{8bc3d606-ca97-11e9-bbf5-54ee758c06cb}.TM.blf
+ NTUSER.DAT{8bc3d606-ca97-11e9-bbf5-54ee758c06cb}.TMContainer00000000000000000001.regtrans-ms
+ NTUSER.DAT{8bc3d606-ca97-11e9-bbf5-54ee758c06cb}.TMContainer00000000000000000002.regtrans-ms
+ ntuser.ini
+ OneDrive/
+'Outlook Files'/
+ Pictures/
+ PrintHood@
+ Recent@
+ report.txt
+ Roaming/
+'Saved Games'/
+ scan_results/
+ Searches/
+ SendTo@
+'Start Menu'@
+ Templates@
+ Tracing/
+ Videos/
+'VirtualBox VMs'/
+
+gerry@andfinity-001 MINGW64 ~
+$ ls
+'3D Objects'/
+ advanced_ip_scanner_Aliases.bin
+ advanced_ip_scanner_Comments.bin
+ advanced_ip_scanner_MAC.bin
+ AppData/
+'Application Data'@
+ Contacts/
+ Cookies@
+ Desktop/
+ dire/
+ Documents/
+ Downloads/
+ Dropbox/
+ Favorites/
+ IntelGraphicsProfiles/
+ Links/
+'Local Settings'@
+ logs/
+ MicrosoftEdgeBackups/
+ Music/
+'My Documents'@
+ NetHood@
+ NTUSER.DAT
+ ntuser.dat.LOG1
+ ntuser.dat.LOG2
+ NTUSER.DAT{8bc3d606-ca97-11e9-bbf5-54ee758c06cb}.TM.blf
+ NTUSER.DAT{8bc3d606-ca97-11e9-bbf5-54ee758c06cb}.TMContainer00000000000000000001.regtrans-ms
+ NTUSER.DAT{8bc3d606-ca97-11e9-bbf5-54ee758c06cb}.TMContainer00000000000000000002.regtrans-ms
+ ntuser.ini
+ OneDrive/
+'Outlook Files'/
+ Pictures/
+ PrintHood@
+ Recent@
+ report.txt
+ Roaming/
+'Saved Games'/
+ scan_results/
+ Searches/
+ SendTo@
+'Start Menu'@
+ Templates@
+ Tracing/
+ Videos/
+'VirtualBox VMs'/
+
+gerry@andfinity-001 MINGW64 ~
+$ cd ~/.ssh
+
+gerry@andfinity-001 MINGW64 ~/.ssh
+$ ls
+id_rsa  id_rsa.pub
+
+
+gerry@andfinity-001 MINGW64 ~/.ssh
+
+gerry@andfinity-001 MINGW64 ~/.ssh
+$ ls -lah
+total 21K
+drwxr-xr-x 1 gerry 197609    0 Aug  6 21:05 ./
+drwxr-xr-x 1 gerry 197609    0 Aug  6 21:05 ../
+-rw-r--r-- 1 gerry 197609 2.6K Aug  6 21:05 id_rsa
+-rw-r--r-- 1 gerry 197609  573 Aug  6 21:05 id_rsa.pub
+
+gerry@andfinity-001 MINGW64 ~/.ssh
+
+gerry@andfinity-001 MINGW64 ~/.ssh
+$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDNBK5W3OoDuDELLrDdtJ/kXsRjDPrIQniLiKscf6X4a3FbWuKO/HLeT99elsmdaIfEtQUNUVJcwA9/n62iapm4oxUDdCxZpBEJsATc9YCNB0I75YFtmVepnulsE5JpwFpAgO4SL6g06tdkjUFBeH4VGLUB/Z2B1bf0CxjCOarVJYlPTjcX28KmJOl+JpV7Fh5AQZZOFWFplsGhq37MUpMipJN0b3711jFXblZeVHc2ftkpB81t9Mg/0ECjgr6aS3cT1DTbv+8TDf1EiiM46Zd++d/MPkggHfcfFc7NTMIDcUZxhlRJeAEZaLy2E8FmHmfU3sWVY78MJgSGsKtg2WbuVXwxGXOfpZgb0EnCFxQ6bERN6Zk1LZrX+EA0KOTRLDScv7FpVhIi2cMV6YM9vdkiqCAKmmstz/3ZgyBvW3P6gI7eMLDpwOD422Db34/E8JMiiTatDd6EXD9PNnJVbvGXMTa104NjxoX0nGP7uF/X8yxl6MWvJnxiXhU65tL5LQM= gerry@andfinity-001
+

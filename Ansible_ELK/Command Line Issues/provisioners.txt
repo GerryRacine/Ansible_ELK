@@ -1,0 +1,365 @@
+### Install docker.io
+
+root@Jump-Box-Provisioner:/home/sysadmin# sudo apt install docker.io
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+docker.io is already the newest version (19.03.6-0ubuntu1~18.04.1).
+The following package was automatically installed and is no longer required:
+  grub-pc-bin
+Use 'sudo apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 12 not upgraded.
+root@Jump-Box-Provisioner:/home/sysadmin# systemctl service docker
+Unknown operation service.
+root@Jump-Box-Provisioner:/home/sysadmin# systemctl status docker
+● docker.service - Docker Application Container Engine
+   Loaded: loaded (/lib/systemd/system/docker.service; disabled; vendor preset: enabled)
+   Active: active (running) since Thu 2020-08-13 18:56:17 UTC; 33min ago
+     Docs: https://docs.docker.com
+ Main PID: 3407 (dockerd)
+    Tasks: 10
+   CGroup: /system.slice/docker.service
+           └─3407 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+### docker.io Installed <<<<<<<<
+
+### pull ansible >>>>>>>>>>>>>>>
+
+root@Jump-Box-Provisioner:/home/sysadmin# sudo docker pull cyberxsecurity/ansible
+Using default tag: latest
+latest: Pulling from cyberxsecurity/ansible
+Digest: sha256:a245954c7eda5d15ec6bc8cca2ab129e12491e711de0db63344ebf40fa35d26b
+Status: Image is up to date for cyberxsecurity/ansible:latest
+docker.io/cyberxsecurity/ansible:latest
+root@Jump-Box-Provisioner:/home/sysadmin#
+
+### pulled latest ansible
+
+### Conect to ansible
+
+root@Jump-Box-Provisioner:/home/sysadmin# sudo docker run -it cyberxsecurity/ansible /bin/bash
+root@44f7a95d5c48:~#
+
+# this is ansible >>> 'root@44f7a95d5c48:~#'
+
+### logined into ansible
+
+### ansible ssh-keygen
+
+root@44f7a95d5c48:~# ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Created directory '/root/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa.
+Your public key has been saved in /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:CdmTOkWmfFdw466g3xgS6ZLm23pB1oPKecLiADQvTnU root@44f7a95d5c48
+The key's randomart image is:
++---[RSA 2048]----+
+|        o ..+    |
+| o . E * . + .   |
+|. + . =o* . .    |
+|.o .  +*o+ .     |
+|+ .o == S.  .    |
+|... *oo+ . .     |
+| o .+o+.. .      |
+|  .o o.o +       |
+|    ++. o .      |
++----[SHA256]-----+
+root@44f7a95d5c48:~# ls
+root@44f7a95d5c48:~# ls .shh
+ls: cannot access '.shh': No such file or directory
+root@44f7a95d5c48:~# ls .ssh
+id_rsa  id_rsa.pub
+root@44f7a95d5c48:~#
+
+### ansible ssh-keygen complete
+
+### cat id_rsa.pub to view
+
+root@44f7a95d5c48:~# cat .ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/+6s8f1NCXhp5UtnYE6YHBA4ibpX6ZULDtYLxpZwMfc+kP3LJJtEnCkpRzCZLzIcMiTYSPVBdU5butARzvBVQEo0BBGoPnNNSIKHRE4m4DGOj91Kx7bHvrKriOVnIR4xOd1sP8IiKHl9LMGfxdoBdT3uIMD5UsuTGKrXN48NknGk0+S0x5+88iS72mcEf1ruWIFfYBU+ZK6hiAPmRXvgT95ofQmO97ZF16ABhINWF5NZMeJp19wNPY3w6UJivJKqTezkjGoJw2NXKp/bKA0cbkNOzkXLqOiSAKD44EJ0zHd/mOFZrM02VEmUjgcTsnGuaOTB4LFtn/CPgjWAV0C/9 root@44f7a95d5c48
+root@44f7a95d5c48:~#
+
+### cat comleted
+
+### ansible playbooks
+
+root@Jump-Box-Provisioner:/home/sysadmin# docker container list -a
+CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS                           PORTS               NAMES
+44f7a95d5c48        cyberxsecurity/ansible          "/bin/bash"              32 minutes ago      Exited (127) 32 seconds ago                          vigorous_wilbur
+0af702f0acb8        cyberxsecurity/ansible:latest   "bash"                   37 minutes ago      Exited (0) 36 minutes ago                            amazing_yalow
+ddfec9d7f4f4        cyberxsecurity/ansible:latest   "bash"                   About an hour ago   Exited (99) 46 minutes ago                           pedantic_williams
+09ed098ebbd5        cyberxsecurity/ansible:latest   "bash"                   About an hour ago   Exited (127) About an hour ago                       unruffled_tesla
+c74c70c7dc8c        cyberxsecurity/ansible          "/bin/bash"              45 hours ago        Exited (150) 42 hours ago                            intelligent_bhabha
+7a5fb6a5320a        cyberxsecurity/ansible          "bash"                   5 days ago          Exited (1) 5 days ago                                ecstatic_hamilton
+da9b6d32e68c        cyberxsecurity/ansible          "/bin/bash -o pipefa…"   5 days ago          Exited (0) 5 days ago                                loving_einstein
+
+
+root@Jump-Box-Provisioner:/home/sysadmin# docker start vigorous_wilbur
+vigorous_wilbur
+root@Jump-Box-Provisioner:/home/sysadmin#
+
+# attach jumpbox to ansible
+root@Jump-Box-Provisioner:/home/sysadmin# docker attach vigorous_wilbur
+root@44f7a95d5c48:~#
+ 
+
+### playbooks FIN
+
+### produce YAML file .yml
+
+root@44f7a95d5c48:~# cd /etc/ansible
+root@44f7a95d5c48:/etc/ansible# ls
+ansible.cfg  hosts  roles
+root@44f7a95d5c48:/etc/ansible# nano /etc/ansible/pentest.yml
+root@44f7a95d5c48:/etc/ansible# ls
+ansible.cfg  hosts  pentest.yml  roles
+root@44f7a95d5c48:/etc/ansible# cat pentest.yml
+
+
+
+
+
+
+
+chmod: changing permissions of '/dev/shm': Permission denied
+chmod: changing permissions of '/dev/mqueue': Permission denied
+rm: cannot remove '/etc/post-install/01-devices.post': Permission denied
+rm: cannot remove '/etc/post-install/03-mtab.post': Permission denied
+rm: cannot remove '/etc/post-install/06-windows-files.post': Permission denied
+rm: cannot remove '/etc/post-install/99-post-install-cleanup.post': Permission denied
+
+gerry@andfinity-001 MINGW64 ~
+$ ssh sysadmin@VM-public-IVM-public-I
+ssh: Could not resolve hostname vm-public-ivm-public-i: Name or service not known
+
+gerry@andfinity-001 MINGW64 ~
+$ VM-public-I
+bash: VM-public-I: command not found
+
+gerry@andfinity-001 MINGW64 ~
+$V^Ch sysadmin@52.235.56.92
+
+gerry@andfinity-001 MINGW64 ~
+$ ssh sysadmin@52.235.56.92
+bash: $'\302\226ssh': command not found
+
+gerry@andfinity-001 MINGW64 ~
+$ ssh asdmin-sysadmin@52.235.56.92
+bash: $'\302\226ssh': command not found
+
+gerry@andfinity-001 MINGW64 ~
+$ ipconfig
+
+Windows IP Configuration
+
+
+Ethernet adapter VirtualBox Host-Only Network:
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::adbe:8bef:3d16:9cf3%19
+   IPv4 Address. . . . . . . . . . . : 192.168.56.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . :
+
+Ethernet adapter VirtualBox Host-Only Network #2:
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::48a8:ca62:4307:e75a%11
+   IPv4 Address. . . . . . . . . . . : 192.168.0.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . :
+
+Ethernet adapter VirtualBox Host-Only Network #3:
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::4511:b5c7:6406:8494%7
+   IPv4 Address. . . . . . . . . . . : 192.168.6.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . :
+
+Wireless LAN adapter Wi-Fi:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Wireless LAN adapter Local Area Connection* 5:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Wireless LAN adapter Local Area Connection* 6:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Ethernet adapter Ethernet:
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::a1b8:94b6:bd0e:e9a8%26
+   IPv4 Address. . . . . . . . . . . : 192.168.2.167
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.2.1
+
+Ethernet adapter Ethernet 2:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Ethernet adapter Bluetooth Network Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+gerry@andfinity-001 MINGW64 ~
+$ ipconfig all
+
+Error: unrecognized or incomplete command line.
+
+USAGE:
+    ipconfig [/allcompartments] [/? | /all |
+                                 /renew [adapter] | /release [adapter] |
+                                 /renew6 [adapter] | /release6 [adapter] |
+                                 /flushdns | /displaydns | /registerdns |
+                                 /showclassid adapter |
+                                 /setclassid adapter [classid] |
+                                 /showclassid6 adapter |
+                                 /setclassid6 adapter [classid] ]
+
+where
+    adapter             Connection name
+                       (wildcard characters * and ? allowed, see examples)
+
+    Options:
+       /?               Display this help message
+       /all             Display full configuration information.
+       /release         Release the IPv4 address for the specified adapter.
+       /release6        Release the IPv6 address for the specified adapter.
+       /renew           Renew the IPv4 address for the specified adapter.
+       /renew6          Renew the IPv6 address for the specified adapter.
+       /flushdns        Purges the DNS Resolver cache.
+       /registerdns     Refreshes all DHCP leases and re-registers DNS names
+       /displaydns      Display the contents of the DNS Resolver Cache.
+       /showclassid     Displays all the dhcp class IDs allowed for adapter.
+       /setclassid      Modifies the dhcp class id.
+       /showclassid6    Displays all the IPv6 DHCP class IDs allowed for adapter.
+       /setclassid6     Modifies the IPv6 DHCP class id.
+
+
+The default is to display only the IP address, subnet mask and
+default gateway for each adapter bound to TCP/IP.
+
+For Release and Renew, if no adapter name is specified, then the IP address
+leases for all adapters bound to TCP/IP will be released or renewed.
+
+For Setclassid and Setclassid6, if no ClassId is specified, then the ClassId is removed.
+
+Examples:
+    > ipconfig                       ... Show information
+    > ipconfig /all                  ... Show detailed information
+    > ipconfig /renew                ... renew all adapters
+    > ipconfig /renew EL*            ... renew any connection that has its
+                                         name starting with EL
+    > ipconfig /release *Con*        ... release all matching connections,
+                                         eg. "Wired Ethernet Connection 1" or
+                                             "Wired Ethernet Connection 2"
+    > ipconfig /allcompartments      ... Show information about all
+                                         compartments
+    > ipconfig /allcompartments /all ... Show detailed information about all
+                                         compartments
+
+gerry@andfinity-001 MINGW64 ~
+$ ssh sysadmin@52.235.56.92
+Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 5.3.0-1034-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Aug 13 18:36:06 UTC 2020
+
+  System load:  0.08              Processes:           110
+  Usage of /:   6.9% of 28.90GB   Users logged in:     0
+  Memory usage: 34%               IP address for eth0: 10.0.0.4
+  Swap usage:   0%
+
+ * Are you ready for Kubernetes 1.19? It's nearly here! Try RC3 with
+   sudo snap install microk8s --channel=1.19/candidate --classic
+
+   https://microk8s.io/ has docs and details.
+
+12 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Wed Aug 12 00:53:04 2020 from 70.55.44.172
+sysadmin@Jump-Box-Provisioner:~$ ls
+sysadmin@Jump-Box-Provisioner:~$ systemctl service docker
+Unknown operation service.
+sysadmin@Jump-Box-Provisioner:~$
+sysadmin@Jump-Box-Provisioner:~$ sudo apt install docker.io
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+docker.io is already the newest version (19.03.6-0ubuntu1~18.04.1).
+The following package was automatically installed and is no longer required:
+  grub-pc-bin
+Use 'sudo apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 12 not upgraded.
+sysadmin@Jump-Box-Provisioner:~$ sudo su
+root@Jump-Box-Provisioner:/home/sysadmin# docker run -ti cyberxsecurity/ansible:latest bash
+root@09ed098ebbd5:~#
+root@09ed098ebbd5:~# docker images
+bash: docker: command not found
+root@09ed098ebbd5:~# docker run -it cyberxsecurity/ansible /bin/bash
+bash: docker: command not found
+root@09ed098ebbd5:~# exit
+exit
+root@Jump-Box-Provisioner:/home/sysadmin# docker run -ti cyberxsecurity/ansible:latest bash
+root@ddfec9d7f4f4:~# cd ..
+root@ddfec9d7f4f4:/# ls
+bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
+boot  etc  lib   media  opt  root  sbin  sys  usr
+root@ddfec9d7f4f4:/# cd root
+root@ddfec9d7f4f4:~# ls
+root@ddfec9d7f4f4:~# pwd
+/root
+root@ddfec9d7f4f4:~# ls
+root@ddfec9d7f4f4:~# cd home
+bash: cd: home: No such file or directory
+root@ddfec9d7f4f4:~# ls
+root@ddfec9d7f4f4:~# ls .ssh/
+ls: cannot access '.ssh/': No such file or directory
+root@ddfec9d7f4f4:~# cd ..
+root@ddfec9d7f4f4:/# ls
+bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
+boot  etc  lib   media  opt  root  sbin  sys  usr
+root@ddfec9d7f4f4:/# ls .ssh/
+ls: cannot access '.ssh/': No such file or directory
+root@ddfec9d7f4f4:/# cd root
+root@ddfec9d7f4f4:~# ls
+root@ddfec9d7f4f4:~# ls .ssh/
+ls: cannot access '.ssh/': No such file or directory
+root@ddfec9d7f4f4:~#
+root@ddfec9d7f4f4:~# ls /etc/ansible/
+ansible.cfg  hosts  roles
+root@ddfec9d7f4f4:~# nano hosts
+root@ddfec9d7f4f4:~# nano /etc/ansible/hosts
+root@ddfec9d7f4f4:~# nano /etc/ansible/hosts
+root@ddfec9d7f4f4:~# nano /etc/ansible/ansible.cfg
+root@ddfec9d7f4f4:~# ansible_python_interpreter=/usr/bin/python3
+root@ddfec9d7f4f4:~# ansible -m ping all
+10.0.0.7 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.0.0.7 port 22: No route to host",
+    "unreachable": true
+}
+10.0.0.5 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.0.0.5 port 22: No route to host",
+    "unreachable": true
+}
+root@ddfec9d7f4f4:~#

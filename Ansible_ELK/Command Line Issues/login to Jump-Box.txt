@@ -1,0 +1,67 @@
+gerry@andfinity-001 MINGW64 ~
+$ ssh -i id_rsa sysadmin@52.235.56.92
+Warning: Identity file id_rsa not accessible: No such file or directory.
+The authenticity of host '40.86.224.43 (40.86.224.43)' can't be established.
+ECDSA key fingerprint is SHA256:eE4U6mYEloUGu7/qtqqjNt1QPPxddtB4e0sd51qsGT4.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '40.86.224.43' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 5.3.0-1034-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Sat Aug  8 16:08:07 UTC 2020
+
+  System load:  0.0               Processes:           115
+  Usage of /:   4.7% of 28.90GB   Users logged in:     0
+  Memory usage: 34%               IP address for eth0: 10.0.0.4
+  Swap usage:   0%
+
+ * Are you ready for Kubernetes 1.19? It's nearly here! Try RC3 with
+   sudo snap install microk8s --channel=1.19/candidate --classic
+
+   https://microk8s.io/ has docs and details.
+
+12 packages can be updated.
+0 updates are security updates.
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+sysadmin@Jump-Box-Provisioner:~$
+
+sysadmin@Jump-Box-Provisioner:~$ ls
+sysadmin@Jump-Box-Provisioner:~$ cd root
+-bash: cd: root: No such file or directory
+sysadmin@Jump-Box-Provisioner:~$ ls
+sysadmin@Jump-Box-Provisioner:~$ cd ..
+sysadmin@Jump-Box-Provisioner:/home$ ls
+sysadmin
+sysadmin@Jump-Box-Provisioner:/home$ cd /root
+-bash: cd: /root: Permission denied
+sysadmin@Jump-Box-Provisioner:/home$
+sysadmin@Jump-Box-Provisioner:/home$ sudo cd ..
+sudo: cd: command not found
+sysadmin@Jump-Box-Provisioner:/home$ pwd/
+-bash: pwd/: No such file or directory
+sysadmin@Jump-Box-Provisioner:/home$ cd ..
+sysadmin@Jump-Box-Provisioner:/$ ls
+bin   etc   lib64       mnt   root  snap  tmp  vmlinuz
+boot  home  lost+found  opt   run   srv   usr  vmlinuz.old
+dev   lib   media       proc  sbin  sys   var
+sysadmin@Jump-Box-Provisioner:/$ ls
+bin   etc   lib64       mnt   root  snap  tmp  vmlinuz
+boot  home  lost+found  opt   run   srv   usr  vmlinuz.old
+dev   lib   media       proc  sbin  sys   var
+sysadmin@Jump-Box-Provisioner:/$ **need to get into ansible from here**
+

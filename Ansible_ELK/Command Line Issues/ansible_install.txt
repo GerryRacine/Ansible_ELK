@@ -1,0 +1,23 @@
+sysadmin@Jump-Box-Provisioner:~$ sudo docker pull cyberxsecurity/ansible
+Using default tag: latest
+latest: Pulling from cyberxsecurity/ansible
+7ddbc47eeb70: Pull complete
+c1bbdc448b72: Pull complete
+8c3b70e39044: Pull complete
+45d437916d57: Pull complete
+78440e84779a: Pull complete
+b6f0115afe25: Pull complete
+Digest: sha256:a245954c7eda5d15ec6bc8cca2ab129e12491e711de0db63344ebf40fa35d26b
+Status: Downloaded newer image for cyberxsecurity/ansible:latest
+docker.io/cyberxsecurity/ansible:latest
+sysadmin@Jump-Box-Provisioner:~$
+
+sysadmin@Jump-Box-Provisioner:~$ sudo docker images
+REPOSITORY               TAG                 IMAGE ID            CREATED             SIZE
+cyberxsecurity/ansible   latest              6657e0b22542        7 months ago        303MB
+sysadmin@Jump-Box-Provisioner:~$
+
+sysadmin@Jump-Box-Provisioner:~$ sudo docker run -ti cyberxsecurity/ansible bash
+root@7a5fb6a5320a:~#
+
+
